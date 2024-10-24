@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guava Electronics Store - Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <style>
+        /* Styles for the sidebar and product listing */
+        .sidebar {
+            border-right: 1px solid #ddd;
+            padding-right: 15px;
+        }
+
+        .sidebar h5 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px 0;
+            color: #555;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .product-card h5 {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .product-card .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .product-card .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+
+        .product-card .badge-discount {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: green;
+            color: white;
+            padding: 5px;
+            font-size: 0.8rem;
+            border-radius: 5px;
+        }
+
+        .pagination-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination-controls .page-item {
+            margin: 0 5px;
+        }
+
+        /* Responsive Sidebar */
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Bar Section -->
+    <header class="bg-dark text-white py-2 top-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="contact-info">
+                <span class="me-3"><i class="bi bi-telephone-fill"></i> +254710599234 | +254 703849399</span>
+                <span class="me-3"><i class="bi bi-envelope-fill"></i> info@guava.co.ke</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar Section -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand d-lg-none" href="#"><img src="./images/logo.png" alt="Guava Electronics Logo"
+                    width="60"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shop-locator.html">Store Locator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+                    <li class="nav-item"><a class="nav-link" href="track-order.html">Track Your Order</a></li>
+                    <li class="nav-item"><a class="nav-link" href="my-account.html">My Account</a></li>
+                    <li class="nav-item"><a class="nav-link" href="checkout.html">Checkout</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Logo, Search, and Cart Section (Below Navigation) -->
+    <div class="container my-4">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div class="logo" id="sm-logo">
+                <a href="#"><img src="./images/logo.png" alt="Guava Electronics Logo" width="120"></a>
+            </div>
+            <div class="search-bar d-flex flex-grow-1 mx-md-4 my-3 my-md-0">
+                <input class="form-control me-2" type="search" placeholder="Search for products...">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </div>
+            <div class="cart">
+                <a href="#" class="btn btn-outline-dark mt-md-0">
+                    <i class="bi bi-cart-fill"></i> KSh 0.00
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar Section -->
+            <aside class="col-md-3 sidebar">
+                <h5>Printer Types</h5>
+                <a href="#">Laser Printers (120)</a>
+                <a href="#">Inkjet Printers (80)</a>
+                <a href="#">All-in-One Printers (95)</a>
+                <a href="#">Photo Printers (45)</a>
+                <a href="#">Dot Matrix Printers (15)</a>
+                <a href="#">Thermal Printers (30)</a>
+                <a href="#">3D Printers (25)</a>
+            </aside>
+
+            <!-- Products Section -->
+            <div class="col-md-9">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h3>Printers</h3>
+                    <div class="sorting">
+                        <select class="form-select" aria-label="Default sorting">
+                            <option selected>Default sorting</option>
+                            <option value="1">Price - Low to High</option>
+                            <option value="2">Price - High to Low</option>
+                            <option value="3">Latest Arrivals</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="product-grid">
+                    <!-- Printer 1 -->
+                    <div class="product-card">
+                        <span class="badge-discount">-20%</span>
+                        <a href="product-details.html?id=1" class="text-decoration-none text-dark">
+                            <img src="./images/IMG-20241007-WA0017.jpg" alt="HP LaserJet Pro MFP M227fdw">
+                            <h5>HP LaserJet Pro MFP M227fdw</h5>
+                            <p class="price">
+                                <span class="old-price">KSh 40,000.00</span>
+                                KSh 32,000.00
+                            </p>
+                        </a>
+                    </div>
+
+                    <!-- Printer 2 -->
+                    <div class="product-card">
+                        <span class="badge-discount">-15%</span>
+                        <a href="product-details.html?id=2" class="text-decoration-none text-dark">
+                            <img src="./images/IMG-20241007-WA0018.jpg" alt="Inkjet Printer">
+                            <h5>Epson EcoTank L3150 Wi-Fi All-in-One Ink Tank Printer</h5>
+                            <p class="price">
+                                <span class="old-price">KSh 25,000.00</span>
+                                KSh 21,250.00
+                            </p>
+                        </a>
+                    </div>
+
+                    <!-- Printer 3 -->
+                    <div class="product-card">
+                        <span class="badge-discount">-25%</span>
+                        <a href="product-details.html?id=3" class="text-decoration-none text-dark">
+                            <img src="./images/IMG-20241007-WA0019.jpg" alt="All-in-One Printer">
+                            <h5>Canon PIXMA MG3620 Wireless All-In-One Printer</h5>
+                            <p class="price">
+                                <span class="old-price">KSh 20,000.00</span>
+                                KSh 15,000.00
+                            </p>
+                        </a>
+                    </div>
+
+                    <!-- Printer 4 -->
+                    <div class="product-card">
+                        <span class="badge-discount">-30%</span>
+                        <a href="product-details.html?id=4" class="text-decoration-none text-dark">
+                            <img src="./images/IMG-20241007-WA0021.jpg" alt="Photo Printer">
+                            <h5>Canon SELPHY CP1300 Wireless Compact Photo Printer</h5>
+                            <p class="price">
+                                <span class="old-price">KSh 18,000.00</span>
+                                KSh 12,600.00
+                            </p>
+                        </a>
+                    </div>
+
+                    <!-- Printer 5 -->
+                    <div class="product-card">
+                        <span class="badge-discount">-35%</span>
+                        <a href="product-details.html?id=5" class="text-decoration-none text-dark">
+                            <img src="./images/IMG-20241007-WA0023.jpg" alt="3D Printer">
+                            <h5>Creality Ender 3 V2 3D Printer</h5>
+                            <p class="price">
+                                <span class="old-price">KSh 45,000.00</span>
+                                KSh 29,250.00
+                            </p>
+                        </a>
+                    </div>
+
+                    <!-- Additional printers can be added here -->
+                </div>
+
+                <!-- Pagination Controls -->
+                <div class="pagination-controls">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Subscribe to our Newsletter</h5>
+                    <form class="input-group">
+                        <input type="email" class="form-control" placeholder="Enter your email">
+                        <button class="btn btn-outline-light" type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: info@electronicsstore.com</p>
+                    <p>Phone: +1 (800) 123-4567</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white me-2"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                &copy; 2024 Guava Electronics Store. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

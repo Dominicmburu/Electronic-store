@@ -1,0 +1,34 @@
+@media (max-width: 767.98px) {
+    .top-bar .contact-info {
+        font-size: 14px;
+    }
+
+    #sm-logo{
+        display: none;
+    }
+
+    .logo img {
+        width: 100px;
+    }
+
+    .search-bar {
+        /* flex-direction: column; */
+        width: 100%;
+    }
+
+    .search-bar input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-bar button {
+        width: 20%;
+        height: 36px;
+        font-size: 15px;
+    }
+
+    .cart {
+        /* margin-top: 10px; */
+        align-self: flex-end;
+    }
+}

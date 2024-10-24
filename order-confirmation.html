@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guava Electronics Store - Order Confirmation</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- FontAwesome CSS for Custom Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <style>
+        /* Additional Styles for Order Confirmation Page */
+
+        .confirmation-container {
+            background-color: #f8f9fa;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .confirmation-container i {
+            font-size: 4rem;
+            color: #28a745;
+            margin-bottom: 20px;
+        }
+
+        .order-details {
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .order-details table th,
+        .order-details table td {
+            vertical-align: middle !important;
+        }
+
+        .order-details img {
+            width: 60px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .confirmation-container {
+                padding: 20px;
+            }
+
+            .order-details img {
+                width: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Bar Section -->
+    <header class="bg-dark text-white py-2 top-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="contact-info">
+                <span class="me-3"><i class="bi bi-telephone-fill"></i> +254710599234 | +254 703849399</span>
+                <span class="me-3"><i class="bi bi-envelope-fill"></i> info@guava.co.ke</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar Section -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand d-lg-none" href="#"><img src="./images/logo.png" alt="Guava Electronics Logo" width="60"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shop-locator.html">Store Locator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+                    <li class="nav-item"><a class="nav-link" href="track-order.html">Track Your Order</a></li>
+                    <li class="nav-item"><a class="nav-link" href="my-account.html">My Account</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="checkout.html">Checkout</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Logo, Search, and Cart Section (Below Navigation) -->
+    <div class="container my-4">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div class="logo" id="sm-logo">
+                <a href="#"><img src="./images/logo.png" alt="Guava Electronics Logo" width="120"></a>
+            </div>
+            <div class="search-bar d-flex flex-grow-1 mx-md-4 my-3 my-md-0">
+                <input class="form-control me-2" type="search" placeholder="Search for products...">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </div>
+            <div class="cart">
+                <a href="cart.html" class="btn btn-outline-dark mt-md-0">
+                    <i class="bi bi-cart-fill"></i> KSh 0.00
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="container my-5">
+        <div class="confirmation-container">
+            <i class="bi bi-check-circle-fill"></i>
+            <h3>Thank You for Your Purchase!</h3>
+            <p>Your order has been successfully placed.</p>
+            <p><strong>Order Number:</strong> <span id="confirmation-order-number"></span></p>
+            <p><strong>Order Date:</strong> <span id="confirmation-order-date"></span></p>
+
+            <div class="order-details mt-4">
+                <h5>Order Details</h5>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Product</th>
+                                <th>Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody id="confirmation-order-items">
+                            <!-- Order items will be inserted here dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-end">
+                    <h5>Total: KSh <span id="confirmation-order-total">0.00</span></h5>
+                </div>
+            </div>
+
+            <a href="index.html" class="btn btn-primary mt-4"><i class="bi bi-house-door-fill"></i> Continue Shopping</a>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Subscribe to our Newsletter</h5>
+                    <form class="input-group">
+                        <input type="email" class="form-control" placeholder="Enter your email" required>
+                        <button class="btn btn-outline-light" type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: info@electronicsstore.com</p>
+                    <p>Phone: +1 (800) 123-4567</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <a href="#" class="text-white me-2"><i class="fab fa-facebook-f fs-4"></i></a>
+                    <a href="#" class="text-white me-2"><i class="fab fa-twitter fs-4"></i></a>
+                    <a href="#" class="text-white me-2"><i class="fab fa-instagram fs-4"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-linkedin fs-4"></i></a>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                &copy; 2024 Guava Electronics Store. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Include Products Data -->
+    <script src="./js/products.js"></script>
+    <!-- Include Cart Data -->
+    <script src="./js/cart.js"></script>
+    <!-- Custom JavaScript for Checkout Functionality -->
+    <script src="./js/checkout.js"></script>
+    <!-- Custom JavaScript for Order Confirmation -->
+    <script src="./js/order-confirmation.js"></script>
+</body>
+
+</html>

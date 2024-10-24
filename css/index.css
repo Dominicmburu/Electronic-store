@@ -169,61 +169,8 @@
     .service-description {
         font-size: 0.9rem;
     }
-
-    /* Horizontal Separators for Mobile */
-    /* .row .col-md-4 {
-        position: relative;
-    } */
-
-    /* .row .col-md-4:not(:last-child)::after {
-        content: '';
-        position: absolute;
-        bottom: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60%;
-        border-bottom: 1px solid #dee2e6;
-    }
-
-    .separator {
-        display: none;
-    } */
 }
 
 
 
 /* Adjustments for small screens */
-@media (max-width: 767.98px) {
-    .top-bar .contact-info {
-        font-size: 14px;
-    }
-
-    #sm-logo{
-        display: none;
-    }
-
-    .logo img {
-        width: 100px;
-    }
-
-    .search-bar {
-        /* flex-direction: column; */
-        width: 100%;
-    }
-
-    .search-bar input {
-        width: 100%;
-        margin-bottom: 10px;
-    }
-
-    .search-bar button {
-        width: 20%;
-        height: 36px;
-        font-size: 15px;
-    }
-
-    .cart {
-        /* margin-top: 10px; */
-        align-self: flex-end;
-    }
-}

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guava Electronics Store - Product Details</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- FontAwesome CSS for Custom Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <style>
+        .sidebar {
+            border-right: 1px solid #ddd;
+            padding-right: 15px;
+        }
+
+        .sidebar h5 {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px 0;
+            color: #555;
+            text-decoration: none;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Carousel Styles */
+        .carousel-item img {
+            height: 500px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 5%;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            display: none; /* Hide default Bootstrap icons */
+        }
+
+        .carousel-control-prev i,
+        .carousel-control-next i {
+            font-size: 2rem;
+            color: #000;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .carousel-control-prev:hover i,
+        .carousel-control-next:hover i {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        /* Product Information Styles */
+        .product-info h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .price-section {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .price-section .current-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #28a745;
+            margin-right: 15px;
+        }
+
+        .price-section .old-price {
+            font-size: 1.2rem;
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .add-to-cart-btn {
+            margin-top: 20px;
+        }
+
+        .product-description {
+            margin-top: 30px;
+        }
+
+        .product-specifications {
+            margin-top: 30px;
+        }
+
+        /* Customer Reviews Styles */
+        .customer-reviews .review {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+
+        /* Related Products Styles */
+        .related-products .product-card {
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            background-color: #fff;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .related-products .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .related-products .product-card img {
+            max-height: 200px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .related-products .price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .related-products .old-price {
+            text-decoration: line-through;
+            color: #888;
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .carousel-item img {
+                height: 300px;
+            }
+
+            .product-info h2 {
+                font-size: 1.5rem;
+            }
+
+            .price-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .related-products .product-card {
+                padding: 10px;
+            }
+
+            .sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Bar Section -->
+    <header class="bg-dark text-white py-2 top-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="contact-info">
+                <span class="me-3"><i class="bi bi-telephone-fill"></i> +254710599234 | +254 703849399</span>
+                <span class="me-3"><i class="bi bi-envelope-fill"></i> info@guava.co.ke</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar Section -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand d-lg-none" href="#"><img src="./images/logo.png" alt="Guava Electronics Logo" width="60"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shop-locator.html">Store Locator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+                    <li class="nav-item"><a class="nav-link" href="track-order.html">Track Your Order</a></li>
+                    <li class="nav-item"><a class="nav-link" href="my-account.html">My Account</a></li>
+                    <li class="nav-item"><a class="nav-link" href="checkout.html">Checkout</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Logo, Search, and Cart Section (Below Navigation) -->
+    <div class="container my-4">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div class="logo" id="sm-logo">
+                <a href="#"><img src="./images/logo.png" alt="Guava Electronics Logo" width="120"></a>
+            </div>
+            <div class="search-bar d-flex flex-grow-1 mx-md-4 my-3 my-md-0">
+                <input class="form-control me-2" type="search" placeholder="Search for products...">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </div>
+            <div class="cart">
+                <a href="#" class="btn btn-outline-dark mt-md-0">
+                    <i class="bi bi-cart-fill"></i> KSh 0.00
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar Section -->
+            <aside class="col-md-3 sidebar">
+                <h5>Printer Types</h5>
+                <a href="shop.html#laser-printers">Laser Printers (120)</a>
+                <a href="shop.html#inkjet-printers">Inkjet Printers (80)</a>
+                <a href="shop.html#all-in-one-printers">All-in-One Printers (95)</a>
+                <a href="shop.html#photo-printers">Photo Printers (45)</a>
+                <a href="shop.html#dot-matrix-printers">Dot Matrix Printers (15)</a>
+                <a href="shop.html#thermal-printers">Thermal Printers (30)</a>
+                <a href="shop.html#3d-printers">3D Printers (25)</a>
+            </aside>
+
+            <!-- Product Details Section -->
+            <div class="col-md-9">
+                <div class="row">
+                    <!-- Product Images Carousel -->
+                    <div class="col-md-6 product-images">
+                        <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner" id="carousel-inner">
+                                <!-- Carousel items will be inserted here dynamically -->
+                            </div>
+                            <!-- Carousel Controls with FontAwesome Icons -->
+                            <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                                <i class="fas fa-chevron-left"></i>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                                <i class="fas fa-chevron-right"></i>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Product Information -->
+                    <div class="col-md-6 product-info">
+                        <h2 id="product-name">Product Name</h2>
+                        <div class="price-section">
+                            <span class="current-price" id="current-price">KSh 0.00</span>
+                            <span class="old-price" id="old-price">KSh 0.00</span>
+                            <span class="badge bg-success ms-2" id="discount-badge">-0% OFF</span>
+                        </div>
+                        <p class="text-muted" id="stock-status">In Stock</p>
+                        <p id="product-description">Product description goes here.</p>
+                        <form class="add-to-cart-form">
+                            <div class="mb-3">
+                                <label for="quantity" class="form-label">Quantity:</label>
+                                <input type="number" class="form-control" id="quantity" name="quantity" value="1" min="1">
+                            </div>
+                            <button type="submit" class="btn btn-primary add-to-cart-btn">
+                                <i class="bi bi-cart-plus"></i> Add to Cart
+                            </button>
+                        </form>
+
+                        <!-- Share Buttons -->
+                        <div class="mt-4">
+                            <h5>Share:</h5>
+                            <a href="#" class="text-primary me-2"><i class="fab fa-facebook-f fs-4"></i></a>
+                            <a href="#" class="text-info me-2"><i class="fab fa-twitter fs-4"></i></a>
+                            <a href="#" class="text-danger me-2"><i class="fab fa-instagram fs-4"></i></a>
+                            <a href="#" class="text-secondary"><i class="fab fa-linkedin fs-4"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Description -->
+                <div class="product-description">
+                    <h4>Description</h4>
+                    <p id="full-description">
+                        Full product description goes here.
+                    </p>
+                </div>
+
+                <!-- Product Specifications -->
+                <div class="product-specifications">
+                    <h4>Specifications</h4>
+                    <table class="table table-bordered" id="specifications-table">
+                        <tbody>
+                            <!-- Specifications will be inserted here dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Customer Reviews -->
+                <div class="customer-reviews mt-5">
+                    <h4>Customer Reviews</h4>
+                    <div id="reviews-section">
+                        <!-- Reviews will be inserted here dynamically -->
+                    </div>
+                </div>
+
+                <!-- Related Products -->
+                <div class="related-products">
+                    <h4>Related Products</h4>
+                    <div class="row product-grid" id="related-products-section">
+                        <!-- Related products will be inserted here dynamically -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Subscribe to our Newsletter</h5>
+                    <form class="input-group">
+                        <input type="email" class="form-control" placeholder="Enter your email" required>
+                        <button class="btn btn-outline-light" type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: info@electronicsstore.com</p>
+                    <p>Phone: +1 (800) 123-4567</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <a href="#" class="text-white me-2"><i class="fab fa-facebook-f fs-4"></i></a>
+                    <a href="#" class="text-white me-2"><i class="fab fa-twitter fs-4"></i></a>
+                    <a href="#" class="text-white me-2"><i class="fab fa-instagram fs-4"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-linkedin fs-4"></i></a>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                &copy; 2024 Guava Electronics Store. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Include Products Data -->
+    <script src="./js/products.js"></script>
+    <!-- Custom JavaScript for Dynamic Content -->
+    <script>
+        // Function to get URL parameters
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Function to render product details
+        function renderProductDetails(productId) {
+            const product = products[productId];
+            if (!product) {
+                document.body.innerHTML = "<h2 class='text-center mt-5'>Product Not Found</h2>";
+                return;
+            }
+
+            // Set Product Name
+            document.getElementById('product-name').innerText = product.name;
+
+            // Set Prices and Discount
+            document.getElementById('current-price').innerText = `KSh ${product.currentPrice.toLocaleString()}.00`;
+            document.getElementById('old-price').innerText = `KSh ${product.oldPrice.toLocaleString()}.00`;
+            document.getElementById('discount-badge').innerText = `-${product.discount} OFF`;
+
+            // Set Stock Status
+            document.getElementById('stock-status').innerText = product.stock;
+
+            // Set Product Description
+            document.getElementById('product-description').innerText = product.description;
+
+            // Set Full Description (can be same as product.description or more detailed)
+            document.getElementById('full-description').innerText = product.description;
+
+            // Set Specifications
+            const specsTable = document.getElementById('specifications-table');
+            specsTable.innerHTML = ''; // Clear existing specifications
+            for (const [key, value] of Object.entries(product.specifications)) {
+                const row = document.createElement('tr');
+                const th = document.createElement('th');
+                th.innerText = key;
+                const td = document.createElement('td');
+                td.innerText = value;
+                row.appendChild(th);
+                row.appendChild(td);
+                specsTable.appendChild(row);
+            }
+
+            // Set Carousel Images
+            const carouselInner = document.getElementById('carousel-inner');
+            carouselInner.innerHTML = ''; // Clear existing images
+            product.images.forEach((imgSrc, index) => {
+                const carouselItem = document.createElement('div');
+                carouselItem.classList.add('carousel-item');
+                if (index === 0) carouselItem.classList.add('active');
+
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.classList.add('d-block', 'w-100');
+                img.alt = `${product.name} - Image ${index + 1}`;
+
+                carouselItem.appendChild(img);
+                carouselInner.appendChild(carouselItem);
+            });
+
+            // Initialize Bootstrap Carousel
+            const productCarousel = new bootstrap.Carousel('#productCarousel', {
+                interval: 3000,
+                ride: 'carousel'
+            });
+
+            // Set Reviews
+            const reviewsSection = document.getElementById('reviews-section');
+            reviewsSection.innerHTML = ''; // Clear existing reviews
+            product.reviews.forEach(review => {
+                const reviewDiv = document.createElement('div');
+                reviewDiv.classList.add('review', 'mb-4');
+
+                const reviewHeader = document.createElement('h5');
+                reviewHeader.innerText = `${review.name} `;
+                const small = document.createElement('small');
+                small.classList.add('text-muted');
+                small.innerText = `- ${review.date}`;
+                reviewHeader.appendChild(small);
+                reviewDiv.appendChild(reviewHeader);
+
+                const starRating = document.createElement('div');
+                starRating.classList.add('star-rating', 'mb-2');
+                const fullStars = Math.floor(review.rating);
+                const halfStar = review.rating % 1 >= 0.5;
+                for (let i = 0; i < fullStars; i++) {
+                    const star = document.createElement('i');
+                    star.classList.add('fas', 'fa-star', 'text-warning');
+                    starRating.appendChild(star);
+                }
+                if (halfStar) {
+                    const star = document.createElement('i');
+                    star.classList.add('fas', 'fa-star-half-alt', 'text-warning');
+                    starRating.appendChild(star);
+                }
+                const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+                for (let i = 0; i < emptyStars; i++) {
+                    const star = document.createElement('i');
+                    star.classList.add('far', 'fa-star', 'text-warning');
+                    starRating.appendChild(star);
+                }
+                reviewDiv.appendChild(starRating);
+
+                const comment = document.createElement('p');
+                comment.innerText = review.comment;
+                reviewDiv.appendChild(comment);
+
+                reviewsSection.appendChild(reviewDiv);
+            });
+
+            // Set Related Products
+            const relatedProductsSection = document.getElementById('related-products-section');
+            relatedProductsSection.innerHTML = ''; // Clear existing related products
+            product.relatedProducts.forEach(relProdId => {
+                const relProduct = products[relProdId];
+                if (relProduct) {
+                    const col = document.createElement('div');
+                    col.classList.add('col-md-4', 'mb-4');
+
+                    const productCard = document.createElement('div');
+                    productCard.classList.add('product-card');
+                    productCard.onclick = () => {
+                        window.location.href = `product-details.html?id=${relProduct.id}`;
+                    };
+
+                    const badge = document.createElement('span');
+                    badge.classList.add('badge-discount', 'mb-2');
+                    badge.innerText = `-${relProduct.discount}`;
+                    productCard.appendChild(badge);
+
+                    const img = document.createElement('img');
+                    img.src = relProduct.images[0];
+                    img.alt = relProduct.name;
+                    img.classList.add('mb-3');
+                    productCard.appendChild(img);
+
+                    const title = document.createElement('h5');
+                    title.innerText = relProduct.name;
+                    title.classList.add('mb-2');
+                    productCard.appendChild(title);
+
+                    const price = document.createElement('p');
+                    price.classList.add('price', 'mb-0');
+                    price.innerHTML = `<span class="old-price">KSh ${relProduct.oldPrice.toLocaleString()}.00</span> KSh ${relProduct.currentPrice.toLocaleString()}.00`;
+                    productCard.appendChild(price);
+
+                    col.appendChild(productCard);
+                    relatedProductsSection.appendChild(col);
+                }
+            });
+        }
+
+        // Add to Cart Functionality (Basic Example)
+        document.querySelector('.add-to-cart-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const quantity = document.getElementById('quantity').value;
+            // Implement your add to cart logic here
+            alert(`Added ${quantity} item(s) to cart.`);
+        });
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function () {
+            const productId = getQueryParam('id');
+            if (productId) {
+                renderProductDetails(productId);
+            } else {
+                document.body.innerHTML = "<h2 class='text-center mt-5'>No Product Selected</h2>";
+            }
+        });
+    </script>
+</body>
+
+</html>
