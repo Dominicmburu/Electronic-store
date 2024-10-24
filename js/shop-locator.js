@@ -4,7 +4,7 @@
 const stores = [
     {
         id: 1,
-        name: "Guava Electronics - Nairobi",
+        name: "Electronics - Nairobi",
         address: "123 Main Street, Nairobi, Kenya",
         phone: "+254710599234",
         email: "nairobi@guava.co.ke",
@@ -14,7 +14,7 @@ const stores = [
     },
     {
         id: 2,
-        name: "Guava Electronics - Mombasa",
+        name: "Electronics - Mombasa",
         address: "456 Beach Road, Mombasa, Kenya",
         phone: "+254703849399",
         email: "mombasa@guava.co.ke",
@@ -24,7 +24,7 @@ const stores = [
     },
     {
         id: 3,
-        name: "Guava Electronics - Kisumu",
+        name: "Electronics - Kisumu",
         address: "789 Lake View Avenue, Kisumu, Kenya",
         phone: "+254700112233",
         email: "kisumu@guava.co.ke",
@@ -34,7 +34,7 @@ const stores = [
     },
     {
         id: 4,
-        name: "Guava Electronics - Eldoret",
+        name: "Electronics - Eldoret",
         address: "321 High Street, Eldoret, Kenya",
         phone: "+254701445566",
         email: "eldoret@guava.co.ke",
