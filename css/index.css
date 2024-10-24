@@ -1,0 +1,229 @@
+
+/* Why Choose Us Section Styles */
+.why-choose-us {
+    background-color: #ffffff;
+    border-radius: 15px;
+    /* box-shadow: 0 8px 20px rgba(0, 0, 0, 0.09); */
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.service-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: 100%;
+}
+
+.service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon i {
+    color: #007bff;
+}
+
+.service-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.service-description {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.latest-products-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.latest-products-section .product-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.latest-products-section .product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-right: 15px;
+    display: flex;
+    min-width: 300px;
+    max-width: 350px;
+    padding: 15px;
+    align-items: center;
+}
+
+.latest-products-section .product-image {
+    width: 100px;
+    height: 100px;
+    margin-right: 15px;
+    object-fit: contain;
+}
+
+.latest-products-section .product-details {
+    text-align: center;
+}
+
+.latest-products-section .product-category {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.latest-products-section .product-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.latest-products-section .product-price {
+    font-size: 1.2rem;
+}
+
+.latest-products-section .old-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-right: 10px;
+}
+
+.latest-products-section .new-price {
+    color: red;
+    font-weight: bold;
+}
+
+.latest-products-section .product-slider-pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.latest-products-section .dot {
+    height: 10px;
+    width: 10px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.latest-products-section .dot.active {
+    background-color: #007bff;
+}
+
+
+@media (max-width: 767.98px) {
+    .product-slider {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        overflow-x: visible; 
+    }
+
+    .product-card {
+        min-width: 100%;
+        max-width: 100%;
+    }
+
+    .product-slider-pagination {
+        display: none;
+    }
+
+    .why-choose-us {
+        padding: 20px 10px;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .service-title {
+        font-size: 1.1rem;
+    }
+
+    .service-description {
+        font-size: 0.9rem;
+    }
+
+    /* Horizontal Separators for Mobile */
+    /* .row .col-md-4 {
+        position: relative;
+    } */
+
+    /* .row .col-md-4:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .separator {
+        display: none;
+    } */
+}
+
+
+
+/* Adjustments for small screens */
+@media (max-width: 767.98px) {
+    .top-bar .contact-info {
+        font-size: 14px;
+    }
+
+    #sm-logo{
+        display: none;
+    }
+
+    .logo img {
+        width: 100px;
+    }
+
+    .search-bar {
+        /* flex-direction: column; */
+        width: 100%;
+    }
+
+    .search-bar input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-bar button {
+        width: 20%;
+        height: 36px;
+        font-size: 15px;
+    }
+
+    .cart {
+        /* margin-top: 10px; */
+        align-self: flex-end;
+    }
+}

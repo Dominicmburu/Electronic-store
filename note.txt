@@ -1,0 +1,14 @@
+https://chatgpt.com/c/67042607-9980-8000-8ccf-18a4b9d752a0
+
+i need you to create me this site for selling electronics such as printers. 
+1. a phone icon followed by numbers separated by a border line then mail then social media
+2. A nav bar with Home, store location, shop, cart, track your order, my account, checkout, contact us
+3. logo, search, cart
+4. display like 3 or 4 most bought items with a small description like Catch big deal.... and a shop now button or an arrow for shop now
+5. display like a section show casing why we are the best like fastest delivery.....
+6. then a section for latest products
+7. then a section for most bought products
+7. then a footer that have subscription part, how to reach us, contact info, social media, different methods of payment, customer care links such as my account, terms and conditions, faq, about, contact us. then a section for copyright
+CREATE AN ATTRACTIVE ASTHETIC WEBSITE 
+
+https://chatgpt.com/c/67194171-a86c-8000-a35b-951474319e62?model=gpt-4o
